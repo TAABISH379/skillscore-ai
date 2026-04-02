@@ -6,7 +6,7 @@ import connectDB, { Profile } from '@/lib/mongodb';
 
 export async function POST(req) {
   try {
-    const { username } = await req.json();
+    const { username, mode = 'roast' } = await req.json();
 
     if (!username || typeof username !== 'string') {
       return NextResponse.json({ error: 'Valid GitHub username is required' }, { status: 400 });
@@ -27,7 +27,7 @@ export async function POST(req) {
     const score = calculateSkillScore(githubData);
 
     // 3. Generate AI Feedback
-    const feedback = await generateAIFeedback(githubData, score);
+    const feedback = await generateAIFeedback(githubData, score, mode);
 
     const resultPayload = {
       username: githubData.username,

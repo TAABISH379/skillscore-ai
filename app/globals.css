@@ -41,11 +41,38 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground font-sans antialiased;
-    background-image: radial-gradient(circle at 50% -20%, #17365d, transparent 50%);
+    @apply bg-background text-foreground font-sans antialiased overflow-x-hidden;
   }
 }
 
 .glass-panel {
-  @apply bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl;
+  @apply bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl;
+}
+
+/* Pro Web Dev Background Styles */
+.bg-dot-pattern {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1.5px, transparent 1.5px);
+  background-size: 32px 32px;
+}
+
+.mask-vignette {
+  mask-image: radial-gradient(circle at center, black 30%, transparent 100%);
+  -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 100%);
+}
+
+.aurora-blob-1 {
+  background: conic-gradient(from 180deg at 50% 50%, #3b82f6 0deg, #9333ea 180deg, #ec4899 360deg);
+  filter: blur(120px);
+  animation: spin 20s linear infinite;
+}
+
+.aurora-blob-2 {
+  background: conic-gradient(from 0deg at 50% 50%, #00f2fe 0deg, #4facfe 180deg, #0284c7 360deg);
+  filter: blur(150px);
+  animation: spin 25s linear infinite reverse;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
 }
