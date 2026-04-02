@@ -8,15 +8,17 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="dark">
-      <body className="min-h-screen bg-[#030712] text-foreground font-sans antialiased overflow-x-hidden">
+      <body className="min-h-screen bg-obsidian text-foreground font-sans antialiased overflow-x-hidden selection:bg-white/20 selection:text-white">
         
-        {/* Next-Level Pro Background Layer */}
-        <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
-          <div className="absolute inset-0 bg-dot-pattern opacity-50" />
-          <div className="absolute inset-0 flex items-center justify-center mask-vignette">
-            <div className="absolute w-[80vw] h-[80vw] max-w-[800px] max-h-[800px] aurora-blob-1 opacity-40 mix-blend-screen" />
-            <div className="absolute w-[90vw] h-[90vw] max-w-[900px] max-h-[900px] aurora-blob-2 opacity-30 mix-blend-screen -ml-[20%]" />
-          </div>
+        {/* Prestige Noise Layer */}
+        <div className="fixed inset-0 pointer-events-none z-0 noise-overlay mix-blend-screen opacity-50" />
+        
+        {/* Architect Grid Pattern */}
+        <div className="fixed inset-0 pointer-events-none z-0 bg-grid-pattern" />
+        
+        {/* Ambient Subtle Glow */}
+        <div className="fixed inset-0 pointer-events-none z-0 flex items-center justify-center">
+           <div className="w-[80vw] h-[80vw] bg-white/5 blur-[120px] rounded-full opacity-30" />
         </div>
 
         <div className="relative z-10 flex flex-col min-h-screen">

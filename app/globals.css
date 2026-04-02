@@ -4,33 +4,33 @@
 
 @layer base {
   :root {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
+    --background: 240 10% 4%;
+    --foreground: 0 0% 98%;
 
-    --card: 222.2 84% 6%;
-    --card-foreground: 210 40% 98%;
+    --card: 240 10% 4%;
+    --card-foreground: 0 0% 98%;
 
-    --popover: 224 71.4% 4.1%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 240 10% 4%;
+    --popover-foreground: 0 0% 98%;
 
-    --primary: 217.2 91.2% 59.8%;
-    --primary-foreground: 222.2 47.4% 11.2%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 6% 10%;
 
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 240 6% 10%;
+    --secondary-foreground: 0 0% 98%;
 
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --muted: 240 6% 10%;
+    --muted-foreground: 240 5% 65%;
 
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 240 6% 10%;
+    --accent-foreground: 0 0% 98%;
 
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 224.3 76.3% 48%;
+    --border: 240 6% 15%;
+    --input: 240 6% 15%;
+    --ring: 0 0% 80%;
 
     --radius: 0.5rem;
   }
@@ -49,30 +49,84 @@
   @apply bg-white/5 backdrop-blur-xl border border-white/10 shadow-2xl;
 }
 
-/* Pro Web Dev Background Styles */
-.bg-dot-pattern {
-  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1.5px, transparent 1.5px);
-  background-size: 32px 32px;
+/* Premium Web Dev Background Styles */
+.bg-obsidian {
+  background-color: #000000;
+  background-image: radial-gradient(circle at 50% -10%, #17171c 0%, #000000 70%);
 }
 
-.mask-vignette {
-  mask-image: radial-gradient(circle at center, black 30%, transparent 100%);
-  -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 100%);
+.noise-overlay {
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px 200px;
 }
 
-.aurora-blob-1 {
-  background: conic-gradient(from 180deg at 50% 50%, #3b82f6 0deg, #9333ea 180deg, #ec4899 360deg);
-  filter: blur(120px);
-  animation: spin 20s linear infinite;
+.bg-grid-pattern {
+  background-image: linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+                    linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse at 50% 30%, black 20%, transparent 60%);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 30%, black 20%, transparent 60%);
 }
 
-.aurora-blob-2 {
-  background: conic-gradient(from 0deg at 50% 50%, #00f2fe 0deg, #4facfe 180deg, #0284c7 360deg);
-  filter: blur(150px);
-  animation: spin 25s linear infinite reverse;
+@property --bg-angle {
+  syntax: "<angle>";
+  inherits: true;
+  initial-value: 0turn;
 }
 
-@keyframes spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.magic-border {
+  position: relative;
+  z-index: 1;
+  background: padding-box rgba(0, 0, 0, 0.4);
+}
+
+.magic-border::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  border-radius: inherit;
+  background: conic-gradient(
+    from var(--bg-angle) at 50% 50%,
+    transparent 40%,
+    #52525b 50%,
+    #ffffff 55%,
+    transparent 60%
+  );
+  animation: spin-angle 6s infinite linear;
+}
+
+@keyframes spin-angle {
+  to {
+    --bg-angle: 1turn;
+  }
+}
+
+.brushed-steel-animated {
+  background: linear-gradient(to right, #ffffff, #71717a, #ffffff, #a1a1aa);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shine 8s linear infinite;
+}
+
+@keyframes shine {
+  to {
+    background-position: 200% center;
+  }
+}
+
+.gold-accent {
+  background: linear-gradient(135deg, #fcd34d 0%, #d97706 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.premium-glass {
+  background: rgba(24, 24, 27, 0.4);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.1), 0 20px 40px -10px rgba(0,0,0,0.7);
 }

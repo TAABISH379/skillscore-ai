@@ -22,29 +22,29 @@ export default function ShareButtons({ username, score }) {
   };
 
   return (
-    <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-white/5">
-      <div className="flex items-center gap-2 text-muted-foreground text-sm font-medium">
-        <Share2 className="w-4 h-4" />
-        Share your score
+    <div className="flex flex-col sm:flex-row items-center justify-between gap-6 pt-6 border-t border-white/[0.03]">
+      <div className="flex items-center gap-3 text-zinc-500 text-xs uppercase tracking-widest font-black">
+        <Share2 className="w-4 h-4 text-zinc-600" />
+        Spread the Roast
       </div>
       <div className="flex items-center gap-3 w-full sm:w-auto">
         <button 
           onClick={handleTwitterShare}
-          className="flex-1 sm:flex-none px-4 py-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg text-sm font-medium transition-colors"
+          className="flex-1 sm:flex-none flex items-center justify-center gap-2 px-5 py-2.5 bg-zinc-900 border border-zinc-800 hover:bg-white hover:border-white hover:text-black rounded-xl text-xs font-bold uppercase tracking-widest transition-all duration-500 shadow-inner group"
         >
-          Twitter
+          𝕏 <span className="opacity-70 group-hover:opacity-100">Post</span>
         </button>
         <button 
           onClick={handleLinkedInShare}
-          className="flex-1 sm:flex-none px-4 py-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg text-sm font-medium transition-colors cursor-pointer"
+          className="flex-1 sm:flex-none flex items-center justify-center gap-2 px-5 py-2.5 bg-zinc-900 border border-zinc-800 hover:bg-white hover:border-white hover:text-black rounded-xl text-xs font-bold uppercase tracking-widest transition-all duration-500 shadow-inner group"
         >
-          LinkedIn
+          💼 <span className="opacity-70 group-hover:opacity-100">Brag</span>
         </button>
         <button 
           onClick={handleWhatsAppShare}
-          className="flex-1 sm:flex-none px-4 py-2 bg-[#25D366]/10 hover:bg-[#25D366]/20 border border-[#25D366]/20 text-[#25D366] rounded-lg text-sm font-medium transition-colors"
+          className="flex-1 sm:flex-none flex items-center justify-center gap-2 px-5 py-2.5 bg-zinc-900 border border-zinc-800 hover:bg-[#25D366] hover:border-[#25D366] hover:text-white rounded-xl text-xs font-bold uppercase tracking-widest transition-all duration-500 shadow-inner group"
         >
-          WhatsApp
+          💬 <span className="opacity-70 group-hover:opacity-100">Send</span>
         </button>
       </div>
     </div>
